@@ -21,3 +21,13 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('/admin/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
+
+
+Route::middleware('auth')->group(function () {
+
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/admin/profile', 'adminProfile')->name('admin.profile');
+        Route::post('/profile/store', 'profileStore')->name('profile.store');
+    });
+    
+});

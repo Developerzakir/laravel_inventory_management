@@ -12,51 +12,27 @@
 
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico')}}">
-
         <!-- App css -->
         <link href="{{ asset('backend/assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="app-style" />
-
         <!-- Icons -->
         <link href="{{ asset('backend/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
     </head>
 
-    <!-- body start -->
     <body data-menu-color="light" data-sidebar="default">
 
         <!-- Begin page -->
         <div id="app-layout">
 
-
-            <!-- Topbar Start -->
-    @include('admin.body.header')
-            <!-- end Topbar -->
-
-            <!-- Left Sidebar Start -->
-    @include('admin.body.sidebar')
-            <!-- Left Sidebar End -->
-
-            <!-- ============================================================== -->
-            <!-- Start Page Content here -->
-            <!-- ============================================================== -->
-
-    <div class="content-page">
-    
-     @yield('admin')          
-
-     <!-- content -->
-
-                <!-- Footer Start -->
-    @include('admin.body.footer')          
-                <!-- end Footer -->
-                
+        @include('admin.body.header')    
+        @include('admin.body.sidebar')
+             
+            <div class="content-page">
+                @yield('admin')          
+                @include('admin.body.footer')          
             </div>
-            <!-- ============================================================== -->
-            <!-- End Page content -->
-            <!-- ============================================================== -->
-
         </div>
-        <!-- END wrapper -->
 
         <!-- Vendor -->
         <script src="{{ asset('backend/assets/libs/jquery/jquery.min.js')}}"></script>
@@ -78,6 +54,31 @@
 
         <!-- App js-->
         <script src="{{ asset('backend/assets/js/app.js')}}"></script>
+
+         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+        <script>
+         @if(Session::has('message'))
+         var type = "{{ Session::get('alert-type','info') }}"
+         switch(type){
+            case 'info':
+            toastr.info(" {{ Session::get('message') }} ");
+            break;
+        
+            case 'success':
+            toastr.success(" {{ Session::get('message') }} ");
+            break;
+        
+            case 'warning':
+            toastr.warning(" {{ Session::get('message') }} ");
+            break;
+        
+            case 'error':
+            toastr.error(" {{ Session::get('message') }} ");
+            break; 
+         }
+         @endif 
+        </script>
 
     </body>
 </html>

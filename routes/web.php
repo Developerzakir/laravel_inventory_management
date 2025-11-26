@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function () {
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/profile', 'adminProfile')->name('admin.profile');
         Route::post('/profile/store', 'profileStore')->name('profile.store');
+        Route::post('/admin/password/update', 'adminPasswordUpdate')->name('admin.password.update'); 
     });
     
 });

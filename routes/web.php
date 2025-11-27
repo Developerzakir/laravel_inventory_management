@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\backend\WareHouseController;
 
@@ -44,5 +45,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/update/warehouse', 'update')->name('update.warehouse');
     Route::get('/delete/warehouse/{id}', 'destroy')->name('delete.warehouse');
 });
+
+Route::controller(SupplierController::class)->group(function(){
+    Route::get('/all/supplier', 'index')->name('all.supplier'); 
+    Route::get('/add/supplier', 'create')->name('add.supplier');
+    Route::post('/store/supplier', 'store')->name('store.supplier');
+    Route::get('/edit/supplier/{id}', 'edit')->name('edit.supplier');
+    Route::post('/update/supplier', 'update')->name('update.supplier');
+    Route::get('/delete/supplier/{id}', 'destroy')->name('delete.supplier');
+});
+
     
 });

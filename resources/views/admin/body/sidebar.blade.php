@@ -70,6 +70,23 @@
                     </ul>
                 </div>
             </li>
+            <li>
+                <a href="#supplier" data-bs-toggle="collapse">
+                    <i data-feather="users"></i>
+                    <span> Supplier Manage </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="supplier">
+                    <ul class="nav-second-level">
+                        <li>
+                             <a href="{{ route('all.supplier') }}" class="tp-link">All supplier</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('add.supplier') }}" class="tp-link">Add supplier</a>
+                        </li>  
+                    </ul>
+                </div>
+            </li>
 
 
             </ul>

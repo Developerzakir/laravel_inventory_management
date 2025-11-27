@@ -36,12 +36,12 @@
 
 
             <li>
-                <a href="#sidebarAuth" data-bs-toggle="collapse">
+                <a href="#brand" data-bs-toggle="collapse">
                     <i data-feather="users"></i>
                     <span> Brand Manage </span>
                     <span class="menu-arrow"></span>
                 </a>
-                <div class="collapse" id="sidebarAuth">
+                <div class="collapse" id="brand">
                     <ul class="nav-second-level">
                         <li>
                             <a href="{{ route('brand.index') }}" class="tp-link">All Brand</a>
@@ -52,6 +52,26 @@
                     </ul>
                 </div>
             </li>
+
+            <li>
+                <a href="#wareHouse" data-bs-toggle="collapse">
+                    <i data-feather="users"></i>
+                    <span> WareHouse Manage </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="wareHouse">
+                    <ul class="nav-second-level">
+                        <li>
+                             <a href="{{ route('all.warehouse') }}" class="tp-link">All WareHouse</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('add.warehouse') }}" class="tp-link">Add WareHouse</a>
+                        </li>  
+                    </ul>
+                </div>
+            </li>
+
+
             </ul>
         </div>
         <!-- End Sidebar -->

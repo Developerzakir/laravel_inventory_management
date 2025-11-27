@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\backend\WareHouseController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,5 +35,14 @@ Route::middleware('auth')->group(function () {
 
   //brand route
   Route::resource('brand', BrandController::class)->except(['show']);
+
+  Route::controller(WareHouseController::class)->group(function(){
+    Route::get('/all/warehouse', 'index')->name('all.warehouse'); 
+    Route::get('/add/brand', 'create')->name('add.warehouse');
+    Route::post('/store/warehouse', 'store')->name('store.warehouse');
+    Route::get('/edit/warehouse/{id}', 'edit')->name('edit.warehouse');
+    Route::post('/update/warehouse', 'update')->name('update.warehouse');
+    Route::get('/delete/warehouse/{id}', 'destroy')->name('delete.warehouse');
+});
     
 });

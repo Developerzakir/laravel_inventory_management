@@ -88,6 +88,22 @@
                 </div>
             </li>
 
+                <li>
+                <a href="#Customer" data-bs-toggle="collapse">
+                    <i data-feather="users"></i>
+                    <span> Customer Manage </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="Customer">
+                    <ul class="nav-second-level">
+                    <li>
+                        <a href="{{ route('all.customer') }}" class="tp-link">All Customer</a>
+                    </li>   
+                            
+                    </ul>
+                </div>
+            </li>
+
 
             </ul>
         </div>

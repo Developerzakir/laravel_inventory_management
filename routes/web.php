@@ -53,6 +53,13 @@ Route::controller(SupplierController::class)->group(function(){
     Route::get('/edit/supplier/{id}', 'edit')->name('edit.supplier');
     Route::post('/update/supplier', 'update')->name('update.supplier');
     Route::get('/delete/supplier/{id}', 'destroy')->name('delete.supplier');
+
+    Route::get('/all/customer', 'allCustomer')->name('all.customer'); 
+    Route::get('/add/customer', 'addCustomer')->name('add.customer');
+    Route::post('/store/customer', 'storeCustomer')->name('store.customer');
+    Route::get('/edit/customer/{id}', 'editCustomer')->name('edit.customer');
+    Route::post('/update/customer', 'updateCustomer')->name('update.customer');
+    Route::get('/delete/customer/{id}', 'deleteCustomer')->name('delete.customer');
 });
 
     

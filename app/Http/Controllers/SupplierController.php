@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 
@@ -73,8 +74,75 @@ class SupplierController extends Controller
             'alert-type' => 'success'
          ); 
          return redirect()->back()->with($notification);
+    }
+
+    ///// Customer Method All 
+
+    public function allCustomer()
+    {
+        $customer = Customer::latest()->get();
+        return view('admin.customer.all_customer',compact('customer'));
+    }
+    //End Method 
+
+    public function addCustomer(){ 
+        return view('admin.customer.add_customer');
+    }
+    //End Method 
+
+    public function storeCustomer(Request $request)
+    {
+ 
+        Customer::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+        ]);
+
+        $notification = array(
+            'message' => 'Customer Inserted Successfully',
+            'alert-type' => 'success'
+         ); 
+         return redirect()->route('all.customer')->with($notification);
+    }
+ 
+    public function editCustomer($id)
+    {
+        $customer = Customer::find($id);
+        return view('admin.customer.edit_customer',compact('customer')); 
+    }
+        
+    public function updateCustomer(Request $request)
+    {
+        $cust_id = $request->id;
+
+        Customer::find($cust_id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+        ]);
+
+        $notification = array(
+            'message' => 'Customer Updated Successfully',
+            'alert-type' => 'success'
+            ); 
+        return redirect()->route('all.customer')->with($notification);
 
     }
+
+    public function deleteCustomer($id)
+    {
+        Customer::find($id)->delete();
+
+        $notification = array(
+            'message' => 'Customer Deleted Successfully',
+            'alert-type' => 'success'
+            ); 
+        return redirect()->back()->with($notification);
+    }
+
    
    
 }

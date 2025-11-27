@@ -23,109 +23,38 @@
                 </a>
             </div>
 
- <ul id="side-menu">
+        <ul id="side-menu">
 
-    <li class="menu-title">Menu</li>
+            <li class="menu-title">Menu</li>
 
-    <li>
-        <a href="{{ route('dashboard') }}" class="tp-link">
-            <i data-feather="home"></i>
-            <span> Dashboard </span>
-        </a>
-    </li>
+            <li>
+                <a href="{{ route('dashboard') }}" class="tp-link">
+                    <i data-feather="home"></i>
+                    <span> Dashboard </span>
+                </a>
+            </li>
 
 
-    <li class="menu-title">Pages</li>
-
-    <li>
-        <a href="#sidebarAuth" data-bs-toggle="collapse">
-            <i data-feather="users"></i>
-            <span> Authentication </span>
-            <span class="menu-arrow"></span>
-        </a>
-        <div class="collapse" id="sidebarAuth">
-            <ul class="nav-second-level">
-                <li>
-                    <a href="auth-login.html" class="tp-link">Log In</a>
-                </li>
-                <li>
-                    <a href="auth-register.html" class="tp-link">Register</a>
-                </li>
-                    
+            <li>
+                <a href="#sidebarAuth" data-bs-toggle="collapse">
+                    <i data-feather="users"></i>
+                    <span> Brand Manage </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <div class="collapse" id="sidebarAuth">
+                    <ul class="nav-second-level">
+                        <li>
+                            <a href="{{ route('brand.index') }}" class="tp-link">All Brand</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('brand.create') }}" class="tp-link">Add Brand</a>
+                        </li>  
+                    </ul>
+                </div>
+            </li>
             </ul>
-        </div>
-    </li>
-
-    <li>
-        <a href="#sidebarError" data-bs-toggle="collapse">
-            <i data-feather="alert-octagon"></i>
-            <span> Error Pages </span>
-            <span class="menu-arrow"></span>
-        </a>
-        <div class="collapse" id="sidebarError">
-            <ul class="nav-second-level">
-                <li>
-                    <a href="error-404.html" class="tp-link">Error 404</a>
-                </li>
-                <li>
-                    <a href="error-500.html" class="tp-link">Error 500</a>
-                </li>
-                
-            </ul>
-        </div>
-    </li>
-
-    
-    
-
-    <li class="menu-title mt-2">General</li>
-
-    <li>
-        <a href="#sidebarBaseui" data-bs-toggle="collapse">
-            <i data-feather="package"></i>
-            <span> Components </span>
-            <span class="menu-arrow"></span>
-        </a>
-        <div class="collapse" id="sidebarBaseui">
-            <ul class="nav-second-level">
-                <li>
-                    <a href="ui-accordions.html" class="tp-link">Accordions</a>
-                </li>
-                <li>
-                    <a href="ui-alerts.html" class="tp-link">Alerts</a>
-                </li>
-                
-            </ul>
-        </div>
-    </li>
-
-
-    <li>
-        <a href="#sidebarAdvancedUI" data-bs-toggle="collapse">
-            <i data-feather="cpu"></i>
-            <span> Extended UI </span>
-            <span class="menu-arrow"></span>
-        </a>
-        <div class="collapse" id="sidebarAdvancedUI">
-            <ul class="nav-second-level">
-                <li>
-                    <a href="extended-carousel.html" class="tp-link">Carousel</a>
-                </li>
-                <li>
-                    <a href="extended-notifications.html" class="tp-link">Notifications</a>
-                </li>
-                    
-            </ul>
-        </div>
-    </li>
-
-
-            </ul>
-
         </div>
         <!-- End Sidebar -->
-
         <div class="clearfix"></div>
-
     </div>
 </div>

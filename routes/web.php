@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Backend\BrandController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,5 +31,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/profile/store', 'profileStore')->name('profile.store');
         Route::post('/admin/password/update', 'adminPasswordUpdate')->name('admin.password.update'); 
     });
+
+  //brand route
+  Route::resource('brand', BrandController::class)->except(['show']);
     
 });

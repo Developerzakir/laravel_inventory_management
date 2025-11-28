@@ -69,7 +69,14 @@ Route::controller(ProductController::class)->group(function(){
     Route::get('/edit/category/{id}', 'edit');
     Route::post('/update/category', 'update')->name('update.category'); 
     Route::get('/delete/category/{id}', 'destroy')->name('delete.category');
+
+    //product route
+     Route::get('/all/product', 'allProduct')->name('all.product');
+     Route::get('/add/product', 'addProduct')->name('add.product');
+     Route::post('/store/product', 'storeProduct')->name('store.product');
 });
+
+
 
     
 });

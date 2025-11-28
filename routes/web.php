@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\WareHouseController;
 
 Route::get('/', function () {
@@ -60,6 +61,14 @@ Route::controller(SupplierController::class)->group(function(){
     Route::get('/edit/customer/{id}', 'editCustomer')->name('edit.customer');
     Route::post('/update/customer', 'updateCustomer')->name('update.customer');
     Route::get('/delete/customer/{id}', 'deleteCustomer')->name('delete.customer');
+});
+
+Route::controller(ProductController::class)->group(function(){
+    Route::get('/all/category', 'index')->name('all.category');
+    Route::post('/store/category', 'store')->name('store.category'); 
+    Route::get('/edit/category/{id}', 'edit');
+    Route::post('/update/category', 'update')->name('update.category'); 
+    Route::get('/delete/category/{id}', 'destroy')->name('delete.category');
 });
 
     

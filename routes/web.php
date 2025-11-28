@@ -86,6 +86,7 @@ Route::controller(PurchaseController::class)->group(function(){
     Route::get('/all/purchase', 'allPurchase')->name('all.purchase'); 
     Route::get('/add/purchase', 'addPurchase')->name('add.purchase'); 
     Route::get('/purchase/product/search', 'purchaseProductSearch')->name('purchase.product.search'); 
+    Route::post('/store/purchase', 'storePurchase')->name('store.purchase'); 
 });
 
 

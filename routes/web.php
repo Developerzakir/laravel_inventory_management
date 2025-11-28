@@ -90,6 +90,7 @@ Route::controller(PurchaseController::class)->group(function(){
     Route::get('/edit/purchase/{id}', 'editPurchase')->name('edit.purchase'); 
     Route::post('/update/purchase/{id}', 'updatePurchase')->name('update.purchase'); 
     Route::get('/delete/purchase/{id}', 'deletePurchase')->name('delete.purchase');
+    Route::get('/details/purchase/{id}', 'detailsPurchase')->name('details.purchase'); 
 });
 
 

@@ -48,9 +48,9 @@
                                         <td>Cash</td>
                                         <td>{{ \Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</td>
                                         <td>
-                                            <a title="Details" href="{{ route('details.product',$item->id) }}" class="btn btn-info btn-sm"> <span class="mdi mdi-eye-circle mdi-18px"></span> </a> 
+                                            <a title="Details" href="{{ route('details.purchase',$item->id) }}" class="btn btn-info btn-sm"> <span class="mdi mdi-eye-circle mdi-18px"></span> </a> 
 
-                                            <a title="PDF Invoice" href="{{ route('details.product',$item->id) }}" class="btn btn-primary btn-sm"> <span class="mdi mdi-download-circle mdi-18px"></span> </a> 
+                                            <a title="PDF Invoice" href="{{ route('details.purchase',$item->id) }}" class="btn btn-primary btn-sm"> <span class="mdi mdi-download-circle mdi-18px"></span> </a> 
 
                                             <a title="Edit" href="{{ route('edit.purchase',$item->id) }}" class="btn btn-success btn-sm"> <span class="mdi mdi-book-edit mdi-18px"></span> </a>  
 

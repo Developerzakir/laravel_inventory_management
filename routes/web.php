@@ -86,7 +86,10 @@ Route::controller(PurchaseController::class)->group(function(){
     Route::get('/all/purchase', 'allPurchase')->name('all.purchase'); 
     Route::get('/add/purchase', 'addPurchase')->name('add.purchase'); 
     Route::get('/purchase/product/search', 'purchaseProductSearch')->name('purchase.product.search'); 
-    Route::post('/store/purchase', 'storePurchase')->name('store.purchase'); 
+    Route::post('/store/purchase', 'storePurchase')->name('store.purchase');
+    Route::get('/edit/purchase/{id}', 'editPurchase')->name('edit.purchase'); 
+    Route::post('/update/purchase/{id}', 'updatePurchase')->name('update.purchase'); 
+    Route::get('/delete/purchase/{id}', 'deletePurchase')->name('delete.purchase');
 });
 
 

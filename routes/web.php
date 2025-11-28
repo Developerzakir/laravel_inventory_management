@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\backend\ProductController;
+use App\Http\Controllers\backend\PurchaseController;
 use App\Http\Controllers\backend\WareHouseController;
 
 Route::get('/', function () {
@@ -78,6 +79,13 @@ Route::controller(ProductController::class)->group(function(){
      Route::post('/update/product', 'updateProduct')->name('update.product');
      Route::get('/delete/product/{id}', 'deleteProduct')->name('delete.product');
      Route::get('/details/product/{id}', 'detailsProduct')->name('details.product');
+});
+
+
+Route::controller(PurchaseController::class)->group(function(){
+    Route::get('/all/purchase', 'allPurchase')->name('all.purchase'); 
+    Route::get('/add/purchase', 'addPurchase')->name('add.purchase'); 
+    Route::get('/purchase/product/search', 'purchaseProductSearch')->name('purchase.product.search'); 
 });
 
 

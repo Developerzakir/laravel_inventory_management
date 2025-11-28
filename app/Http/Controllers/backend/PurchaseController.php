@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PurchaseController extends Controller
 {
@@ -241,6 +242,14 @@ class PurchaseController extends Controller
                 'alert-type' => 'error'
             ]);
         }
+    }
+
+    public function invoicePurchase($id)
+    {
+        $purchase = Purchase::with(['supplier','warehouse','purchaseItems.product'])->find($id);
+
+        $pdf = Pdf::loadView('admin.purchase.invoice_pdf',compact('purchase'));
+        return $pdf->download('purchase_'.$id.'.pdf');
     }
    
     

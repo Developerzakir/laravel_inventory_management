@@ -226,8 +226,15 @@ class ProductController extends Controller
             'alert-type' => 'success'
          ); 
          return redirect()->back()->with($notification);
-
     }
+
+
+    public function detailsProduct($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('admin.product.details_product',compact('product'));
+    }
+ 
      
 
    

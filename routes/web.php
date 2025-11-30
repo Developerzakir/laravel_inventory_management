@@ -100,6 +100,10 @@ Route::controller(ReturnPurchaseController::class)->group(function(){
     Route::get('/add/return/purchase', 'create')->name('add.return.purchase');
     Route::post('/store/return/purchase', 'store')->name('store.return.purchase');
     Route::get('/details/return/purchase/{id}', 'detailsReturnPurchase')->name('details.return.purchase');
+    Route::get('/invoice/return/purchase/{id}', 'invoiceReturnPurchase')->name('invoice.return.purchase');
+    Route::get('/edit/return/purchase/{id}', 'edit')->name('edit.return.purchase');
+    Route::post('/update/return/purchase/{id}', 'update')->name('update.return.purchase');
+    Route::get('/delete/return/purchase/{id}', 'destroy')->name('delete.return.purchase');
 });
 
 

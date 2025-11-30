@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\PurchaseController;
 use App\Http\Controllers\backend\WareHouseController;
+use App\Http\Controllers\backend\ReturnPurchaseController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -92,6 +93,13 @@ Route::controller(PurchaseController::class)->group(function(){
     Route::get('/delete/purchase/{id}', 'deletePurchase')->name('delete.purchase');
     Route::get('/details/purchase/{id}', 'detailsPurchase')->name('details.purchase'); 
     Route::get('/invoice/purchase/{id}', 'invoicePurchase')->name('invoice.purchase');
+});
+
+Route::controller(ReturnPurchaseController::class)->group(function(){
+    Route::get('/all/return/purchase', 'index')->name('all.return.purchase');
+    Route::get('/add/return/purchase', 'create')->name('add.return.purchase');
+    Route::post('/store/return/purchase', 'store')->name('store.return.purchase');
+    Route::get('/details/return/purchase/{id}', 'detailsReturnPurchase')->name('details.return.purchase');
 });
 
 

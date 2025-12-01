@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\PurchaseController;
 use App\Http\Controllers\backend\WareHouseController;
+use App\Http\Controllers\backend\SaleReturnController;
 use App\Http\Controllers\backend\ReturnPurchaseController;
 
 Route::get('/', function () {
@@ -116,6 +117,18 @@ Route::controller(SaleController::class)->group(function(){
     Route::get('/delete/sale/{id}', 'destroy')->name('delete.sale');
     Route::get('/details/sale/{id}', 'detailsSales')->name('details.sale');
     Route::get('/invoice/sale/{id}', 'invoiceSales')->name('invoice.sale');
+});
+
+
+Route::controller(SaleReturnController::class)->group(function(){
+    Route::get('/all/sale/return', 'index')->name('all.sale.return'); 
+    Route::get('/add/sale/return', 'create')->name('add.sale.return');
+    Route::post('/store/sale/return', 'store')->name('store.sale.return');
+    Route::get('/edit/sale/return/{id}', 'edit')->name('edit.sale.return');
+    Route::post('/update/sale/return/{id}', 'update')->name('update.sale.return');
+    Route::get('/details/sale/return/{id}', 'detailsSalesReturn')->name('details.sale.return');
+    Route::get('/delete/sale/return/{id}', 'destroy')->name('delete.sale.return');
+
 });
 
 

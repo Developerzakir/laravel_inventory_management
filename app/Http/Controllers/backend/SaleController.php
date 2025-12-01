@@ -97,4 +97,94 @@ class SaleController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+
+
+    public function edit($id)
+    {
+        $editData = Sale::with('saleItems.product')->findOrFail($id);
+        $customers = Customer::all();
+        $warehouses = WareHouse::all();
+        return view('admin.sales.edit', compact('editData', 'customers', 'warehouses'));
+    }
+
+    public function update(Request $request, $id)
+    {
+
+        $request->validate([
+            'date' => 'required|date',
+            'status' => 'required',
+        ]);
+
+        $sales = Sale::findOrFail($id);
+        $sales->update([
+            'date' => $request->date,
+            'warehouse_id' => $request->warehouse_id,
+            'customer_id' => $request->customer_id,
+            'discount' => $request->discount ?? 0,
+            'shipping' => $request->shipping ?? 0,
+            'status' => $request->status,
+            'note' => $request->note,
+            'grand_total' => $request->grand_total,
+            'paid_amount' => $request->paid_amount,
+            'due_amount' => $request->due_amount,
+            'full_paid' => $request->full_paid,
+        ]);
+
+        // Delete old sales item
+        SaleItem::where('sale_id', $sales->id)->delete();
+
+        foreach ($request->products as $product_id => $product) {
+            SaleItem::create([
+                'sale_id' => $sales->id,
+                'product_id' => $product_id,
+                'net_unit_cost' => $product['net_unit_cost'],
+                'stock' => $product['stock'],
+                'quantity' => $product['quantity'],
+                'discount' => $product['discount'] ?? 0,
+                'subtotal' => $product['subtotal'],
+            ]);
+
+            /// Update Product Stock
+
+            $productModel = Product::find($product_id);
+            if ($productModel) {
+                $productModel->product_qty += $product['quantity'];
+                $productModel->save();
+            }
+        }
+
+        $notification = array(
+            'message' => 'Sale Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.sale')->with($notification);
+    }
+
+    public function destroy($id)
+    {
+        try {
+            DB::beginTransaction();
+            $sales = Sale::findOrFail($id);
+            $SalesItems = SaleItem::where('sale_id', $id)->get();
+
+            foreach ($SalesItems as $item) {
+                $product = Product::find($item->product_id);
+                if ($product) {
+                    $product->increment('product_qty', $item->quantity);
+                }
+            }
+            SaleItem::where('sale_id', $id)->delete();
+            $sales->delete();
+            DB::commit();
+
+            $notification = array(
+                'message' => 'Sale Deleted Successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('all.sale')->with($notification);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
 }

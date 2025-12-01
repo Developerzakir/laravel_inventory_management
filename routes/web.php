@@ -110,6 +110,7 @@ Route::controller(ReturnPurchaseController::class)->group(function(){
 Route::controller(SaleController::class)->group(function(){
     Route::get('/all/sale', 'index')->name('all.sale');
     Route::get('/add/sale', 'create')->name('add.sale');
+    Route::post('/store/sale', 'store')->name('store.sale');
 });
 
 

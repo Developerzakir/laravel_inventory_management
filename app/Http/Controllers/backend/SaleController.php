@@ -187,4 +187,21 @@ class SaleController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+
+
+    public function detailsSales($id)
+    {
+        $sales = Sale::with(['customer', 'saleItems.product'])->find($id);
+        return view('admin.sales.sales_details', compact('sales'));
+    }
+
+    public function invoiceSales($id)
+    {
+        $sales = Sale::with(['customer', 'warehouse', 'saleItems.product'])->find($id);
+
+        $pdf = Pdf::loadView('admin.sales.invoice_pdf', compact('sales'));
+        return $pdf->download('sales_' . $id . '.pdf');
+    }
+
+   
 }

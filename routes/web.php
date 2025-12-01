@@ -114,6 +114,8 @@ Route::controller(SaleController::class)->group(function(){
     Route::get('/edit/sale/{id}', 'edit')->name('edit.sale');
     Route::post('/update/sale/{id}', 'update')->name('update.sale');
     Route::get('/delete/sale/{id}', 'destroy')->name('delete.sale');
+    Route::get('/details/sale/{id}', 'detailsSales')->name('details.sale');
+    Route::get('/invoice/sale/{id}', 'invoiceSales')->name('invoice.sale');
 });
 
 

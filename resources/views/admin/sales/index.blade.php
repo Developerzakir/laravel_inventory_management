@@ -54,11 +54,11 @@
                                             </td>
                                             <td>{{ \Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</td>
                                             <td>
-                                                <a title="Details" href="{{ route('details.purchase', $item->id) }}"
+                                                <a title="Details" href="{{ route('details.sale', $item->id) }}"
                                                     class="btn btn-info btn-sm"> <span
                                                         class="mdi mdi-eye-circle mdi-18px"></span> </a>
 
-                                                <a title="PDF Invoice" href="{{ route('invoice.purchase', $item->id) }}"
+                                                <a title="PDF Invoice" href="{{ route('invoice.sale', $item->id) }}"
                                                     class="btn btn-primary btn-sm"> <span
                                                         class="mdi mdi-download-circle mdi-18px"></span> </a>
 

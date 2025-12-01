@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\backend\SaleController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\PurchaseController;
@@ -104,6 +105,11 @@ Route::controller(ReturnPurchaseController::class)->group(function(){
     Route::get('/edit/return/purchase/{id}', 'edit')->name('edit.return.purchase');
     Route::post('/update/return/purchase/{id}', 'update')->name('update.return.purchase');
     Route::get('/delete/return/purchase/{id}', 'destroy')->name('delete.return.purchase');
+});
+
+Route::controller(SaleController::class)->group(function(){
+    Route::get('/all/sale', 'index')->name('all.sale');
+    Route::get('/add/sale', 'create')->name('add.sale');
 });
 
 

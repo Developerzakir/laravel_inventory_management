@@ -159,6 +159,25 @@
                         </ul>
                     </div>
                 </li>
+                
+                <li>
+                    <a href="#due" data-bs-toggle="collapse">
+                        <i data-feather="users"></i>
+                        <span> Due Manage </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="due">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('due.sale') }}" class="tp-link">Sales Due</a>
+                            </li>
+                            <li>
+                                <a href="" class="tp-link">Sales Return Due</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
 
 
             </ul>

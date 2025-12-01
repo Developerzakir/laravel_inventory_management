@@ -129,6 +129,10 @@ Route::controller(SaleReturnController::class)->group(function(){
     Route::get('/details/sale/return/{id}', 'detailsSalesReturn')->name('details.sale.return');
     Route::get('/delete/sale/return/{id}', 'destroy')->name('delete.sale.return');
 
+    //due management
+     Route::get('/due/sale', 'dueSale')->name('due.sale'); 
+     Route::get('/due/sale/return', 'dueSaleReturn')->name('due.sale.return'); 
+
 });
 
 

@@ -142,6 +142,7 @@ Route::controller(TransferController::class)->group(function(){
     Route::get('/edit/transfer/{id}', 'edit')->name('edit.transfer');
     Route::post('/update/transfer/{id}', 'update')->name('update.transfer');
     Route::get('/delete/transfer/{id}', 'destroy')->name('delete.transfer');
+    Route::get('/details/transfer/{id}', 'detailsTransfer')->name('details.transfer');
 });
 
 

@@ -212,6 +212,23 @@
                     </div>
                 </li>
 
+                <li>
+                    <a href="#rolepermission" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span>Role & Permission </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="rolepermission">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('all.permission') }}" class="tp-link">All Permission</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </li>
+
 
             </ul>
         </div>

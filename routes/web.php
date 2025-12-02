@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\SaleController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\backend\ReportController;
@@ -159,6 +160,13 @@ Route::controller(ReportController::class)->group(function(){
 });
 
 
-
+Route::controller(RoleController::class)->group(function(){
+    Route::get('/all/permission', 'index')->name('all.permission'); 
+    Route::get('/add/permission', 'create')->name('add.permission');
+    Route::post('/store/permission', 'store')->name('store.permission');
+    Route::get('/edit/permission/{id}', 'edit')->name('edit.permission');
+    Route::post('/update/permission', 'update')->name('update.permission');
+    Route::get('/delete/permission/{id}', 'destroy')->name('delete.permission');
+});
     
 });

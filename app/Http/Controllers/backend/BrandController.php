@@ -24,6 +24,7 @@ class BrandController extends Controller
 
     public function index()
     {
+       
         $brand = $this->brandRepo->all();
         return view('admin.brand.index', compact('brand'));
     }

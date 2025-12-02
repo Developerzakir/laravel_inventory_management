@@ -34,7 +34,7 @@
                     </a>
                 </li>
 
-
+              @hasPermission('brand.menu')
                 <li>
                     <a href="#brand" data-bs-toggle="collapse">
                         <i data-feather="users"></i>
@@ -52,7 +52,9 @@
                         </ul>
                     </div>
                 </li>
+                @endhasPermission
 
+                @hasPermission('warehouse.menu')
                 <li>
                     <a href="#wareHouse" data-bs-toggle="collapse">
                         <i data-feather="users"></i>
@@ -70,6 +72,9 @@
                         </ul>
                     </div>
                 </li>
+                @endhasPermission
+
+                @hasPermission('supplier.menu')
                 <li>
                     <a href="#supplier" data-bs-toggle="collapse">
                         <i data-feather="users"></i>
@@ -87,7 +92,9 @@
                         </ul>
                     </div>
                 </li>
+                @endhasPermission
 
+                @hasPermission('customer.menu')
                 <li>
                     <a href="#Customer" data-bs-toggle="collapse">
                         <i data-feather="users"></i>
@@ -103,7 +110,9 @@
                         </ul>
                     </div>
                 </li>
+                @endhasPermission
 
+                @hasPermission('product.menu')
                 <li>
                     <a href="#Product" data-bs-toggle="collapse">
                         <i data-feather="users"></i>
@@ -122,7 +131,9 @@
                         </ul>
                     </div>
                 </li>
+                @endhasPermission
 
+                @hasPermission('purchase.menu')
                 <li>
                     <a href="#Purchase" data-bs-toggle="collapse">
                         <i data-feather="users"></i>
@@ -140,7 +151,9 @@
                         </ul>
                     </div>
                 </li>
+                @endhasPermission
 
+                @hasPermission('sale.menu')
                 <li>
                     <a href="#Salereturn" data-bs-toggle="collapse">
                         <i data-feather="users"></i>
@@ -159,7 +172,9 @@
                         </ul>
                     </div>
                 </li>
+                @endhasPermission
 
+                @hasPermission('due.menu')
                 <li>
                     <a href="#due" data-bs-toggle="collapse">
                         <i data-feather="users"></i>
@@ -178,21 +193,24 @@
                         </ul>
                     </div>
                 </li>
+                @endhasPermission
 
-                <li>
-                    <a href="#Transfers" data-bs-toggle="collapse">
-                        <i data-feather="alert-octagon"></i>
-                        <span> Transfers Setup </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="Transfers">
-                        <ul class="nav-second-level">
-                            <li>
-                                <a href="{{ route('all.transfer') }}" class="tp-link">Transfers </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                @hasPermission('transfer.menu')
+                    <li>
+                        <a href="#Transfers" data-bs-toggle="collapse">
+                            <i data-feather="alert-octagon"></i>
+                            <span> Transfers Setup </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="Transfers">
+                            <ul class="nav-second-level">
+                                <li>
+                                    <a href="{{ route('all.transfer') }}" class="tp-link">Transfers </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                 @endhasPermission
 
 
                 <li>
@@ -247,7 +265,6 @@
                             <li>
                                 <a href="{{ route('all.admin') }}" class="tp-link">All Admin</a>
                             </li>
-
                         </ul>
                     </div>
                 </li>

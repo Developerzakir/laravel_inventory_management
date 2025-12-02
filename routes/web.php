@@ -183,6 +183,14 @@ Route::controller(RoleController::class)->group(function(){
     Route::get('/admin/edit/roles/{id}', 'adminEditRoles')->name('admin.edit.roles'); 
     Route::post('/admin/roles/update/{id}', 'adminRolesUpdate')->name('admin.roles.update'); 
     Route::get('/admin/delete/roles/{id}', 'adminDeleteRoles')->name('admin.delete.roles');
+
+    //multi admin
+    Route::get('/all/admin', 'allAdmin')->name('all.admin'); 
+    Route::get('/add/admin', 'addAdmin')->name('add.admin'); 
+    Route::post('/store/admin', 'storeAdmin')->name('store.admin');
+    Route::get('/edit/admin/{id}', 'editAdmin')->name('edit.admin'); 
+    Route::post('/update/admin/{id}', 'updateAdmin')->name('update.admin'); 
+    Route::get('/delete/admin/{id}', 'deleteAdmin')->name('delete.admin');
 });
     
 });

@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\backend\SaleController;
 use App\Http\Controllers\Backend\BrandController;
+use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\PurchaseController;
 use App\Http\Controllers\backend\TransferController;
@@ -143,6 +144,18 @@ Route::controller(TransferController::class)->group(function(){
     Route::post('/update/transfer/{id}', 'update')->name('update.transfer');
     Route::get('/delete/transfer/{id}', 'destroy')->name('delete.transfer');
     Route::get('/details/transfer/{id}', 'detailsTransfer')->name('details.transfer');
+});
+
+
+Route::controller(ReportController::class)->group(function(){
+    Route::get('/all/report', 'allReport')->name('all.report');  
+    Route::get('/purchase/return/report', 'purchaseReturnReport')->name('purchase.return.report');
+    Route::get('/sale/report', 'saleReport')->name('sale.report');
+    Route::get('/sale/return/report', 'saleReturnReport')->name('sale.return.report');
+    Route::get('/product/stock/report', 'productStockReport')->name('product.stock.report');
+
+    Route::get('/filter-sales', 'filterSales')->name('filter-sales');
+    Route::get('/filter-purchases', 'filterPurchases')->name('filter-purchases'); 
 });
 
 

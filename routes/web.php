@@ -8,6 +8,7 @@ use App\Http\Controllers\backend\SaleController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\PurchaseController;
+use App\Http\Controllers\backend\TransferController;
 use App\Http\Controllers\backend\WareHouseController;
 use App\Http\Controllers\backend\SaleReturnController;
 use App\Http\Controllers\backend\ReturnPurchaseController;
@@ -132,7 +133,12 @@ Route::controller(SaleReturnController::class)->group(function(){
     //due management
      Route::get('/due/sale', 'dueSale')->name('due.sale'); 
      Route::get('/due/sale/return', 'dueSaleReturn')->name('due.sale.return'); 
+});
 
+Route::controller(TransferController::class)->group(function(){
+    Route::get('/all/transfer', 'index')->name('all.transfer'); 
+    Route::get('/add/transfer', 'create')->name('add.transfer'); 
+    Route::post('/store/transfer', 'store')->name('store.transfer');
 });
 
 

@@ -159,7 +159,7 @@
                         </ul>
                     </div>
                 </li>
-                
+
                 <li>
                     <a href="#due" data-bs-toggle="collapse">
                         <i data-feather="users"></i>
@@ -175,6 +175,21 @@
                                 <a href="" class="tp-link">Sales Return Due</a>
                             </li>
 
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <a href="#Transfers" data-bs-toggle="collapse">
+                        <i data-feather="alert-octagon"></i>
+                        <span> Transfers Setup </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="Transfers">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('all.transfer') }}" class="tp-link">Transfers </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

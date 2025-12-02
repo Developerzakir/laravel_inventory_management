@@ -183,11 +183,13 @@
                     </a>
                     <div class="collapse" id="due">
                         <ul class="nav-second-level">
+                            @hasPermission('all.due')
                             <li>
                                 <a href="{{ route('due.sale') }}" class="tp-link">Sales Due</a>
                             </li>
+                             @endhasPermission
                             <li>
-                                <a href="" class="tp-link">Sales Return Due</a>
+                                <a href="{{route('due.sale.return')}}" class="tp-link">Sales Return Due</a>
                             </li>
 
                         </ul>

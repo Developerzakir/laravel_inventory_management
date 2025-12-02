@@ -16,8 +16,11 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\SaleReturn;
 use App\Models\SaleReturnItem;
 
+
 class SaleReturnController extends Controller
 {
+   
+
     public function index()
     {
         $allData = SaleReturn::orderBy('id', 'desc')->get();
@@ -200,6 +203,11 @@ class SaleReturnController extends Controller
 
     public function dueSale()
     {
+        if (!auth()->user()->hasPermissionTo('all.due')) {
+            abort(403, 'Unauthorized Action');
+         }
+     
+
         $sales = Sale::with(['customer', 'warehouse'])
             ->select('id', 'customer_id', 'warehouse_id', 'due_amount')
             ->where('due_amount', '>', 0)

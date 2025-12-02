@@ -41,7 +41,7 @@ class RoleController extends Controller
         $permissions = Permission::find($id);
         return view('admin.pages.permission.edit_permission', compact('permissions'));
     }
-    
+
 
     public function update(Request $request)
     {
@@ -66,6 +66,68 @@ class RoleController extends Controller
 
         $notification = array(
             'message' => 'Permission Deleted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+
+    ////// Role methods /////
+    public function allRoles()
+    {
+        $roles = Role::all();
+        return view('admin.pages.role.all_role', compact('roles'));
+    }
+    // End Method 
+
+    public function addRoles()
+    {
+        return view('admin.pages.role.add_role');
+    }
+    // End Method 
+
+    public function storeRoles(Request $request)
+    {
+
+        Role::create([
+            'name' => $request->name,
+        ]);
+
+        $notification = array(
+            'message' => 'Role Inserted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.roles')->with($notification);
+    }
+
+    public function editRoles($id)
+    {
+        $roles = Role::find($id);
+        return view('admin.pages.role.edit_role', compact('roles'));
+    }
+    // End Method 
+
+    public function updateRoles(Request $request)
+    {
+        $role_id = $request->id;
+
+        Role::find($role_id)->update([
+            'name' => $request->name,
+        ]);
+
+        $notification = array(
+            'message' => 'Role Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.roles')->with($notification);
+    }
+    // End Method 
+
+    public function deleteRoles($id)
+    {
+        Role::find($id)->delete();
+
+        $notification = array(
+            'message' => 'Role Deleted Successfully',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);

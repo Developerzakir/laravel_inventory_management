@@ -167,6 +167,14 @@ Route::controller(RoleController::class)->group(function(){
     Route::get('/edit/permission/{id}', 'edit')->name('edit.permission');
     Route::post('/update/permission', 'update')->name('update.permission');
     Route::get('/delete/permission/{id}', 'destroy')->name('delete.permission');
+
+    //role
+    Route::get('/all/roles', 'allRoles')->name('all.roles'); 
+    Route::get('/add/roles', 'addRoles')->name('add.roles');
+    Route::post('/store/roles', 'storeRoles')->name('store.roles');
+    Route::get('/edit/roles/{id}', 'editRoles')->name('edit.roles');
+    Route::post('/update/roles', 'updateRoles')->name('update.roles');
+    Route::get('/delete/roles/{id}', 'deleteRoles')->name('delete.roles');
 });
     
 });

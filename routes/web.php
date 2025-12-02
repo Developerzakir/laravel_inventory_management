@@ -139,6 +139,9 @@ Route::controller(TransferController::class)->group(function(){
     Route::get('/all/transfer', 'index')->name('all.transfer'); 
     Route::get('/add/transfer', 'create')->name('add.transfer'); 
     Route::post('/store/transfer', 'store')->name('store.transfer');
+    Route::get('/edit/transfer/{id}', 'edit')->name('edit.transfer');
+    Route::post('/update/transfer/{id}', 'update')->name('update.transfer');
+    Route::get('/delete/transfer/{id}', 'destroy')->name('delete.transfer');
 });
 
 
